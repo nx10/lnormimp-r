@@ -19,7 +19,7 @@ remotes::install_github("nx10/lnormimp-r")
 
 ## Example usage
 
-Let's start by including the library and setting a fixed seed so the results van be replicated:
+Let's start by including the library and setting a fixed seed so the results can be replicated:
 
 ```R
 library(lnormimp)
@@ -109,10 +109,7 @@ _Note that if a plausable measurement range is known for real data, it can be sp
 Let's visualize the results one last time:
 
 ```R
-lines(density(data_imputed),
-      col = "darkgreen",
-      xlim = d_xlim,
-      ylim = d_ylim)
+lines(density(data_imputed), col = "darkgreen")
 ```
 
 ![](docs/example-usage-4.svg)

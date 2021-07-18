@@ -41,10 +41,7 @@ data_imputed <- lnormimp(
   cutoff = c(lower_cutoff, upper_cutoff)
 )
 
-lines(density(data_imputed),
-      col = "darkgreen",
-      xlim = d_xlim,
-      ylim = d_ylim)
+lines(density(data_imputed), col = "darkgreen")
 hgd_plot(width = 600, height = 340, zoom = 1.4, file = "docs/example-usage-4.svg")
 
 ks.test(data, data_imputed)$statistic
