@@ -67,7 +67,7 @@ lnormimp_sample <- function(n, fit, min, max) {
 #' @return 'data' vector with imputed values appended
 #' @export
 #'
-lnormimp <- function(data, censn, cutoff, range) {
+lnormimp <- function(data, censn, cutoff, range = c(0, Inf)) {
   if (length(range) != 2) {
     stop("'range' has the wrong dimensions")
   }
