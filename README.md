@@ -32,7 +32,7 @@ Now we will create our test dataset by drawing some values from a lognormal dist
 data <- rlnorm(400, meanlog = 2, sdlog = 1)
 ```
 
-Lets vizualize our distribution with a probability density curve
+Let's visualize our distribution with a probability density curve
 
 ```R
 plot(density(data), col = "blue", lty = "dashed", main = "Probability-density")
@@ -44,10 +44,10 @@ Now to censor the data we define lower and upper cutoffs
 
 ```R
 lower_cutoff <- 1
-upper_cutoff <- 20
+upper_cutoff <- 15
 ```
 
-Which will be vizualized by drawing vertical lines on our density curve
+Which will be visualized by drawing vertical lines on our density curve
 
 ```R
 abline(v = lower_cutoff, col = "darkgray")
@@ -68,7 +68,7 @@ n_above <- sum(above_upper)
 data_censored <- data[!(below_lower | above_upper)]
 ```
 
-Lets have a quick look at how much data got censored:
+Let's have a quick look at how much data got censored:
 
 ```R
 data.frame(n = length(data),
@@ -84,7 +84,7 @@ data.frame(n = length(data),
 
 From our original 400 values 98 got censored.
 
-Now we can vizualize the censored distribution:
+Now we can visualize the censored distribution:
 
 ```R
 lines(density(data_censored), col = "red", lty = "dotted")
@@ -106,7 +106,7 @@ data_imputed <- lnormimp(
 
 _Note that if a plausable measurement range is known for real data, it can be specified with the optional `range` parameter to obtain even more realistic results. The measurement range is set by default to 0-Infinity._
 
-Let's vizualize the results one last time:
+Let's visualize the results one last time:
 
 ```R
 lines(density(data_imputed),
