@@ -8,7 +8,7 @@ The entire source code can be found in [this file](https://github.com/nx10/lnorm
 
 ## Installation
 
-As this package is very small so we decided to keep it on GitHub and not submit it to CRAN.
+As this package is very small, we decided to keep it on GitHub and not submit it to CRAN.
 
 It can be installed directly with the `remotes` package:
 
@@ -17,7 +17,27 @@ install.packages("remotes") # In case it is not already installed
 remotes::install_github("nx10/lnormimp-r")
 ```
 
+## Quick usage guide
+
+If you want to use this package to impute lognormal distributed censored values, call the function,
+
+```R
+library(lnormimp)
+
+data_imputed <- lnormimp(
+  data_censored,
+  censn = c(n_below, n_above),
+  cutoff = c(lower_cutoff, upper_cutoff)
+)
+```
+
+where `data_censored` is a numeric vector of known measurement values, `n_below` and `n_above` are the number of missing values below the lower cutoff and above the upper cutoff respecively (either of them can be set to zero to indicate no missing values) and `lower_cutoff` and `upper_cutoff` the cutoff limits.
+
+If a plausable measurement range is known for the data, it can be specified with the optional `range` parameter to obtain even more realistic results. The measurement range is set by default to 0-Infinity.
+
 ## Example usage
+
+This section is a short usage guide in which sample data is created, truncated and imputed to further illustrate the usage of this package.
 
 Let's start by including the library and setting a fixed seed so the results can be replicated:
 
