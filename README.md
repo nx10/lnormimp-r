@@ -31,9 +31,9 @@ data_imputed <- lnormimp(
 )
 ```
 
-where `data_censored` is a numeric vector of known measurement values, `n_below` and `n_above` are the number of missing values below the lower cutoff and above the upper cutoff respecively (either of them can be set to zero to indicate no missing values) and `lower_cutoff` and `upper_cutoff` the cutoff limits.
+where `data_censored` is a numeric vector of known measurement values, `n_below` and `n_above` are the number of missing values below the lower cutoff and above the upper cutoff respectively (either of them can be set to zero to indicate no missing values) and `lower_cutoff` and `upper_cutoff` the cutoff limits.
 
-If a plausable measurement range is known for the data, it can be specified with the optional `range` parameter to obtain even more realistic results. The measurement range is set by default to 0-Infinity.
+If a plausible measurement range is known for the data, it can be specified with the optional `range` parameter to obtain even more realistic results. The measurement range is set by default to 0-Infinity.
 
 ## Example usage
 
@@ -124,7 +124,7 @@ data_imputed <- lnormimp(
 )
 ```
 
-_Note that if a plausable measurement range is known for real data, it can be specified with the optional `range` parameter to obtain even more realistic results. The measurement range is set by default to 0-Infinity._
+_Note that if a plausible measurement range is known for real data, it can be specified with the optional `range` parameter to obtain even more realistic results. The measurement range is set by default to 0-Infinity._
 
 Let's visualize the results one last time:
 
@@ -136,7 +136,7 @@ lines(density(data_imputed), col = "darkgreen")
 
 Visually inspecting the data, the imputed distribution (straight green) resembles the original data (dashed blue) much closer than the censored distribution (dotted red).
 
-The [paper](https://doi.org/10.1016/j.cpnec.2021.100052) compares biases of different properties of the distributions (mean, median, standard deviation) and the methods robustnes. Let's replicate one of the papers calculations and calculate the Kolmogorov-Smirnov distance of the censored and imputed distribution in respect to the original data.
+The [paper](https://doi.org/10.1016/j.cpnec.2021.100052) compares biases of different properties of the distributions (mean, median, standard deviation) and the methods robustness. Let's replicate one of the papers calculations and calculate the Kolmogorov-Smirnov distance of the censored and imputed distribution in respect to the original data.
 
 ```R
 > ks.test(data, data_censored)$statistic

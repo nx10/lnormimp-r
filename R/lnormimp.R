@@ -60,21 +60,32 @@ lnormimp_sample <- function(n, fit, min, max) {
 #' Truncated lognormal distribution imputation. (Herbers et al. 2020)
 #'
 #' @param data Numeric data vector
-#' @param censn Number of lower and upper censored values: c(lower, upper)
-#' @param cutoff Lower and upper cutoff limits: c(lower, upper)
-#' @param range Lower and upper measurement range: c(lower, upper)
+#' @param censn Number of lower and upper censored values: `c(lower, upper)`
+#' @param cutoff Lower and upper cutoff limits: `c(lower, upper)`
+#' @param range Lower and upper measurement range: `c(lower, upper)`
+#' @param as_list When set to `TRUE`, results will be returned as a list and
+#'   separated into original `data`, imputed lower values `imp_lower`, and
+#'   imputed upper values `imp_upper`
 #'
-#' @return 'data' vector with imputed values appended
+#' @return 'data' vector with imputed values appended. If `as_list` is set
+#'   to `TRUE` results will be returned as a list and separated into original
+#'   `data`, imputed lower values `imp_lower`, and imputed upper values
+#'   `imp_upper`
 #' @export
 #'
-lnormimp <- function(data, censn, cutoff, range = c(0, Inf)) {
+lnormimp <- function(data, censn, cutoff, range = c(0, Inf), as_list = FALSE) {
   if (length(range) != 2) {
     stop("'range' has the wrong dimensions")
   }
   fit <- lnormimp_fit(data, censn, cutoff)
-  return(c(
-    data,
-    lnormimp_sample(censn[1], fit, range[1], cutoff[1]),
-    lnormimp_sample(censn[2], fit, cutoff[2], range[2])
-  ))
+  imp_lower <- lnormimp_sample(censn[1], fit, range[1], cutoff[1])
+  imp_upper <- lnormimp_sample(censn[2], fit, cutoff[2], range[2])
+  if (as_list) {
+    return(list(
+      data = data,
+      imp_lower = imp_lower,
+      imp_upper = imp_upper
+    ))
+  }
+  return(c(data, imp_lower, imp_upper))
 }

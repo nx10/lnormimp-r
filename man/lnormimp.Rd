@@ -4,19 +4,26 @@
 \alias{lnormimp}
 \title{Truncated lognormal distribution imputation. (Herbers et al. 2020)}
 \usage{
-lnormimp(data, censn, cutoff, range)
+lnormimp(data, censn, cutoff, range = c(0, Inf), as_list = FALSE)
 }
 \arguments{
 \item{data}{Numeric data vector}
 
-\item{censn}{Number of lower and upper censored values: c(lower, upper)}
+\item{censn}{Number of lower and upper censored values: `c(lower, upper)`}
 
-\item{cutoff}{Lower and upper cutoff limits: c(lower, upper)}
+\item{cutoff}{Lower and upper cutoff limits: `c(lower, upper)`}
 
-\item{range}{Lower and upper measurement range: c(lower, upper)}
+\item{range}{Lower and upper measurement range: `c(lower, upper)`}
+
+\item{as_list}{When set to `TRUE`, results will be returned as a list and
+separated into original `data`, imputed lower values `imp_lower`, and
+imputed upper values `imp_upper`}
 }
 \value{
-'data' vector with imputed values appended
+'data' vector with imputed values appended. If `as_list` is set
+  to `TRUE` results will be returned as a list and separated into original
+  `data`, imputed lower values `imp_lower`, and imputed upper values
+  `imp_upper`
 }
 \description{
 Truncated lognormal distribution imputation. (Herbers et al. 2020)

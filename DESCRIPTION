@@ -1,14 +1,14 @@
 Package: lnormimp
 Type: Package
 Title: lnormimp
-Version: 0.1.0
+Version: 0.1.1
 Author: Florian Rupprecht
 Maintainer: Florian Rupprecht <floruppr@gmail.com>
-Description: Herbers et al. (2020)
-License: MIT
+Description: Truncated lognormal distribution imputation (Herbers et al. 2021).
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
     fitdistrplus,
     EnvStats
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
