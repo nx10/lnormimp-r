@@ -58,7 +58,7 @@ Let's visualize our distribution with a probability density curve
 plot(density(data), col = "blue", lty = "dashed", main = "Probability-density")
 ```
 
-![](docs/example-usage-1.svg)
+![](https://raw.githubusercontent.com/nx10/lnormimp-r/master/docs/example-usage-1.svg)
 
 Now to censor the data we define lower and upper cutoffs 
 
@@ -74,7 +74,7 @@ abline(v = lower_cutoff, col = "darkgray")
 abline(v = upper_cutoff, col = "darkgray")
 ```
 
-![](docs/example-usage-2.svg)
+![](https://raw.githubusercontent.com/nx10/lnormimp-r/master/docs/example-usage-2.svg)
 
 Then the cutoff values will be used to create a censored version our original dataset with a known number of missing values below the lower and above the upper cutoff:
 
@@ -110,7 +110,7 @@ Now we can visualize the censored distribution:
 lines(density(data_censored), col = "red", lty = "dotted")
 ```
 
-![](docs/example-usage-3.svg)
+![](https://raw.githubusercontent.com/nx10/lnormimp-r/master/docs/example-usage-3.svg)
 
 The censored distribution (dotted red) looks quite a bit different than the original distribution (dashed blue).
 
@@ -132,7 +132,7 @@ Let's visualize the results one last time:
 lines(density(data_imputed), col = "darkgreen")
 ```
 
-![](docs/example-usage-4.svg)
+![](https://raw.githubusercontent.com/nx10/lnormimp-r/master/docs/example-usage-4.svg)
 
 Visually inspecting the data, the imputed distribution (straight green) resembles the original data (dashed blue) much closer than the censored distribution (dotted red).
 
